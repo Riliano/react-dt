@@ -3,7 +3,7 @@
 import { useState } from 'react';
 // import { FormData } from '@types/form'; For Vervel 
 
-impork styles from './page.module.css'
+import styles from './page.module.css'
 
 interface FormData {
   name: string;
