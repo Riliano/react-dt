@@ -3,7 +3,7 @@
 import styles from './page.module.css'
 
 function Add() {
-	async function onSubmit(event: FormEvent<HTMLFormElement>) {
+	async function onSubmit(event: any) {
 		alert("Item added(not)")
 	}
 
@@ -44,7 +44,11 @@ function Add() {
 
 				<div>
 					<label htmlFor="image">Upload Image:</label>
-					<input type="file" id="image" name="image" accept="image/*" required />
+					<input type="file" id="image" name="image" accept="image/*" />
+				</div>
+
+				<div>
+					<button type="submit" >Add</button>
 				</div>
 
 				</form>
