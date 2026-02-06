@@ -11,7 +11,10 @@ function Footer() {
 					<nav>
 						<Link className={currentRoute === "/" 
 							? "NavButton-active" 
-							: "NavButton-nonactive"} href={"/"}>Home</Link>
+							: "NavButton-nonactive"} href={"/"}>
+							<i className="fas fa-home text-xl mb-1"></i> {/* Home icon */}
+							<span>Home</span>
+						</Link>
 						<Link className={currentRoute === "/Wardrobe" 
 							? "NavButton-active" 
 							: "NavButton-nonactive"} href={"/Wardrobe"}>Wardrobe</Link>

@@ -79,12 +79,12 @@ footer {
 	background: #636CFF;
 	color: #efefef;
     width: 100%;
-	padding-top: 1em;
-	padding-bottom: 1em;
 	display: flex;
 	margin: auto;
 	justify-content: center;
 	overflow-x: auto;
+	padding-top: 1em;
+	padding-bottom: 1em;
 }
 
 .NavButton-active {
