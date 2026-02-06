@@ -14,43 +14,43 @@ interface OutfitData {
 
 
 function Wardrobe() {
-	const [submissions, setSubmissions] = useState<OutfitData[]>([]);
+  const [submissions, setSubmissions] = useState<OutfitData[]>([]);
 
-	useEffect(() => {
-		// Read stored submissions from localStorage
-		const stored: OutfitData[] = JSON.parse(localStorage.getItem('loggedOutfits') || '[]').reverse();
-		setSubmissions(stored);
-	}, []);
+  useEffect(() => {
+    // Read stored submissions from localStorage
+    const stored: OutfitData[] = JSON.parse(localStorage.getItem('loggedOutfits') || '[]').reverse();
+    setSubmissions(stored);
+  }, []);
 
-	if (submissions.length === 0) {
-		return <p>No outfits logged!</p>;
-	}
+  if (submissions.length === 0) {
+    return <p>No outfits logged!</p>;
+  }
 
-	return <>
-			<div className={styles.tableContainer}>
-				<h1> Logged Outfits: </h1>
-				<table className={styles.submissionsTable}>
-					<thead>
-					  <tr>
-						<th>Date</th>
-						<th>Outfit</th>
-						<th>Price</th>
-					  </tr>
-					</thead>
-					<tbody>
-					  {submissions.map((item, index) => (
-						<tr key={index}>
-						  <td>{item.date}</td>
-						  <td>{item.composition}</td>
-						  <td>${item.cost}</td>
-						</tr>
-					  ))}
-					</tbody>
-				  </table>
-			</div>
-			<div className={styles.actions}>
-			</div>
-		</>
+  return <>
+      <div className={styles.tableContainer}>
+        <h1> Logged Outfits: </h1>
+        <table className={styles.submissionsTable}>
+          <thead>
+            <tr>
+            <th>Date</th>
+            <th>Outfit</th>
+            <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {submissions.map((item, index) => (
+            <tr key={index}>
+              <td>{item.date}</td>
+              <td>{item.composition}</td>
+              <td>${item.cost}</td>
+            </tr>
+            ))}
+          </tbody>
+          </table>
+      </div>
+      <div className={styles.actions}>
+      </div>
+    </>
 }
 
 export default Wardrobe;

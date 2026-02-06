@@ -20,95 +20,92 @@ interface OutfitData {
 }
 
 function Add() {
-	const [name, setName] = useState<string>('');
-	const [price, setPrice] = useState<number>(0);
-	const [type, setType] = useState<string>(''); // Store the selected type
-	const [image, setImage] = useState<File | null>(null); // For the image input
+  const [name, setName] = useState<string>('');
+  const [price, setPrice] = useState<number>(0);
+  const [type, setType] = useState<string>(''); // Store the selected type
+  const [image, setImage] = useState<File | null>(null); // For the image input
 
-	async function onSubmit(event: any /*Rect.FormEvent<HTMLFormEvent> */) {
-		event.preventDefault();
+  async function onSubmit(event: any /*Rect.FormEvent<HTMLFormEvent> */) {
+    event.preventDefault();
 
-		 const newSubmission: FormData = {name, price, type, image, selected: false};
+    const newSubmission: FormData = {name, price, type, image, selected: false};
+    // Get current submissions from localStorage, or initialize as an empty array
+    const existingSubmissions: FormData[] = JSON.parse(localStorage.getItem('wardrobe') || '[]');
+    // Add the new submission to the array
+    existingSubmissions.push(newSubmission);
+    // Save updated submissions array to localStorage
+    localStorage.setItem('wardrobe', JSON.stringify(existingSubmissions));
 
-		// Get current submissions from localStorage, or initialize as an empty array
-		const existingSubmissions: FormData[] = JSON.parse(localStorage.getItem('wardrobe') || '[]');
+    // Optionally, reset the form
+    setName('');
+    setPrice(0);
+    setType('');
+    setImage(null);
 
-		// Add the new submission to the array
-		existingSubmissions.push(newSubmission);
+    alert("Item added")
+  }
 
-		// Save updated submissions array to localStorage
-		localStorage.setItem('wardrobe', JSON.stringify(existingSubmissions));
+  return <>
+    <div className={styles.form} >
+      <h1> Add new item to the wardrobe </h1>
+      <form className="addItem" onSubmit={onSubmit}>
+      <div>
+        <label htmlFor="itemName">Item Name:</label>
+        <input type="text" id="itemName" name="itemName" required 
+          onChange={(e) => setName(e.target.value)}
+        />
+      </div>
+      <div>
+        <p>Item Type:</p>
+        <label>
+          <input type="radio" name="itemType" value="accessories" required 
+            onChange={(e) => setType(e.target.value)}
+          />
+          Accessories
+        </label>
 
-		// Optionally, reset the form
-		setName('');
-		setPrice(0);
-		setType('');
-		setImage(null);
+        <label>
+          <input type="radio" name="itemType" value="tops" 
+            onChange={(e) => setType(e.target.value)}
+          />
+          Tops
+        </label>
 
-		alert("Item added")
-	}
+        <label>
+          <input type="radio" name="itemType" value="bottoms"
+            onChange={(e) => setType(e.target.value)}
+          />
+          Bottoms
+        </label>
 
-	return <>
-			<div className={styles.form} >
-				<h1> Add new item to the wardrobe </h1>
-				<form className="addItem" onSubmit={onSubmit}>
-				<div>
-					<label htmlFor="itemName">Item Name:</label>
-					<input type="text" id="itemName" name="itemName" required 
-						onChange={(e) => setName(e.target.value)}
-					/>
-				</div>
-				<div>
-					<p>Item Type:</p>
-					<label>
-						<input type="radio" name="itemType" value="accessories" required 
-							onChange={(e) => setType(e.target.value)}
-						/>
-						Accessories
-					</label>
+        <label>
+          <input type="radio" name="itemType" value="shoes"
+            onChange={(e) => setType(e.target.value)}
+          />
+          Shoes
+        </label>
+      </div>
+      <div>
+        <label htmlFor="price">Price:</label>
+        <input type="number" id="price" name="price" step="0.01" required
+          onChange={(e) => setPrice(Number(e.target.value))}
+        />
+      </div>
 
-					<label>
-						<input type="radio" name="itemType" value="tops" 
-							onChange={(e) => setType(e.target.value)}
-						/>
-						Tops
-					</label>
+      <div>
+        <label htmlFor="image">Upload Image:</label>
+        <input type="file" id="image" name="image" accept="image/*"
+          onChange={(e) => e.target.files && setImage(e.target.files[0] || null)}
+        />
+      </div>
 
-					<label>
-						<input type="radio" name="itemType" value="bottoms"
-							onChange={(e) => setType(e.target.value)}
-						/>
-						Bottoms
-					</label>
+      <div>
+        <button type="submit" >Add</button>
+      </div>
 
-					<label>
-						<input type="radio" name="itemType" value="shoes"
-							onChange={(e) => setType(e.target.value)}
-						/>
-						Shoes
-					</label>
-				</div>
-				<div>
-					<label htmlFor="price">Price:</label>
-					<input type="number" id="price" name="price" step="0.01" required
-						onChange={(e) => setPrice(Number(e.target.value))}
-					/>
-				</div>
-
-				<div>
-					<label htmlFor="image">Upload Image:</label>
-					<input type="file" id="image" name="image" accept="image/*"
-						onChange={(e) => e.target.files && setImage(e.target.files[0] || null)}
-					/>
-				</div>
-
-				<div>
-					<button type="submit" >Add</button>
-				</div>
-
-				</form>
-			</div>
-		</>
+      </form>
+    </div>
+  </>
 }
 
 export default Add;

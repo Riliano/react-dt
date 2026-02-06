@@ -49,15 +49,15 @@ main {
 }
 
 header {
-	flex: 1;
-	position: absolute;
-	background: #636CFF;
-	color: #efefef;
-    width: 100%;
-	top: 0;
-	padding-top: 1em;
-	padding-bottom: 1em;
-	padding-left: 3em;
+  flex: 1;
+  position: absolute;
+  background: #636CFF;
+  color: #efefef;
+  width: 100%;
+  top: 0;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 3em;
 }
 
 .Status {
@@ -69,34 +69,34 @@ header {
 }
 
 .AppTitle {
-	font-size: x-large;
+  font-size: x-large;
 }
 
 footer {
-	flex: 1;
-	position: absolute;
-	bottom: 0;
-	background: #636CFF;
-	color: #efefef;
-    width: 100%;
-	display: flex;
-	margin: auto;
-	justify-content: center;
-	overflow-x: auto;
-	padding-top: 1em;
-	padding-bottom: 1em;
+  flex: 1;
+  position: absolute;
+  bottom: 0;
+  background: #636CFF;
+  color: #efefef;
+  width: 100%;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  overflow-x: auto;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 .NavButton-active {
-	padding-left: 4em;
-	padding-right: 4em;
-	background: #efefef;
-	color: #636CFF;
+  padding-left: 4em;
+  padding-right: 4em;
+  background: #efefef;
+  color: #636CFF;
 }
 
 .NavButton-nonactive {
-	padding-left: 4em;
-	padding-right: 4em;
+  padding-left: 4em;
+  padding-right: 4em;
 }
 
 
