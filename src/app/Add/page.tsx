@@ -84,7 +84,7 @@ function Add() {
 				<div>
 					<label htmlFor="price">Price:</label>
 					<input type="number" id="price" name="price" step="0.01" required
-						onChange={(e) => setPrice(e.target.value)}
+						onChange={(e) => setPrice(Number(e.target.value))}
 					/>
 				</div>
 
