@@ -59,7 +59,7 @@ function Header() {
                 </div>
                 <div className="Status">
                     <h1> Total wardrobe cost: <b>${wardrobeCost}</b></h1>
-                    <h1 style={{"padding-left": "1em"}}> Cost of last outfit: <b>$0</b></h1>
+                    <h1 style={{paddingLeft: "1em"}}> Cost of last outfit: <b>$0</b></h1>
                 </div>
             </header>
         </div>
