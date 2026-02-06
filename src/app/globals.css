@@ -73,10 +73,10 @@ footer {
     width: 100%;
 	padding-top: 1em;
 	padding-bottom: 1em;
-	padding-left: 3em;
 	display: flex;
 	margin: auto;
 	justify-content: center;
+	overflow-x: auto;
 }
 
 .NavButton-active {

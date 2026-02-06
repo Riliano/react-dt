@@ -10,10 +10,6 @@ function Header() {
                     </h1>
                 </div>
                 <div className="Profile">
-                <nav>
-                    <Link href={"/"}>Home</Link>
-                    <Link href={"/Hello"}>Hello</Link>
-                </nav>
                 </div>
             </header>
         </div>

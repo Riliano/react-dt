@@ -1,0 +1,43 @@
+/* Submissions.module.css */
+.tableContainer {
+  flex: 1;
+  overflow-y: auto;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  height: 80%;
+  padding-bottom: 2em;
+}
+
+.submissionsTable {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.submissionsTable th,
+.submissionsTable td {
+  border: 1px solid #ddd;
+  padding: 1rem 1.5rem;
+}
+
+.submissionsTable th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.submissionsTable tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.submissionsTable tr:hover {
+  background-color: #f1f1f1;
+}
+
+.submissionsTable img {
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto;
+}
