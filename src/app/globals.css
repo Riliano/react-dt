@@ -38,10 +38,42 @@ main {
 
 header {
 	position: absolute;
+	background: #636CFF;
+	color: #efefef;
+    width: 100%;
 	top: 0;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	padding-left: 3em;
+}
+
+.AppTitle {
+	font-size: x-large;
 }
 
 footer {
 	position: absolute;
 	bottom: 0;
+	position: absolute;
+	background: #636CFF;
+	color: #efefef;
+    width: 100%;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	padding-left: 3em;
+	display: flex;
+	margin: auto;
+	justify-content: center;
+}
+
+.NavButton-active {
+	padding-left: 4em;
+	padding-right: 4em;
+	background: #efefef;
+	color: #636CFF;
+}
+
+.NavButton-nonactive {
+	padding-left: 4em;
+	padding-right: 4em;
 }
