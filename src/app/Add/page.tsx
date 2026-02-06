@@ -13,6 +13,11 @@ interface FormData {
   image: File | null; // Image can either be a file or null if no image is selected
   selected: boolean;
 }
+interface OutfitData {
+  date: string;
+  composition: string;
+  cost: number;
+}
 
 function Add() {
 	const [name, setName] = useState<string>('');

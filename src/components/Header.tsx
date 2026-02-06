@@ -4,10 +4,9 @@ import { useState, useEffect } from "react";
 
 import Link from "next/link";
 
-//import FromData from "@types/form" //For Vercel
+//import { FormData, OutfitData } from "@types/form" //For Vercel
 
 /* For Vercel */
-
 interface FormData {
   name: string;
   price: number;
@@ -15,11 +14,18 @@ interface FormData {
   image: File | null; // optional image file
   selected: boolean;
 }
+interface OutfitData {
+  date: string;
+  composition: string;
+  cost: number;
+}
+
 
 
 
 function Header() {
     const [wardrobeCost, setWardrobeCost] = useState<number>(0);
+    const [outfitCost, setOutfitCost] = useState<number>(0);
 
     const calculateWardrobeCost = (): number =>{
         const storedWardrobe = localStorage.getItem('wardrobe');
@@ -39,12 +45,28 @@ function Header() {
         }
     }
 
+    const calculateLastCost = (): number =>{
+        const loggedOutfits = localStorage.getItem('loggedOutfits');
+
+        // If there is no data in localStorage, return 0
+        if (!loggedOutfits) return 0;
+        try {
+            const parsed = JSON.parse(loggedOutfits);
+            if (!Array.isArray(parsed)) return 0;
+            return parsed.slice(-1)[0].cost;
+        } catch (error) {
+            console.error('Error parsing wardrobe data:', error);
+            return 0; // If there is any error during parsing, return 0
+        }
+    }
+
     /* Hack to quickly get the functionality
      * We will have a small amount of clohtes, so it won't matter
      */
     useEffect(() => {
         const interval = setInterval(() => {
             setWardrobeCost(calculateWardrobeCost());
+            setOutfitCost(calculateLastCost());
         }, 200);
         return () => clearInterval(interval); // Clean up on component unmount
     }, []); // Runs once when the component mounts
@@ -59,7 +81,7 @@ function Header() {
                 </div>
                 <div className="Status">
                     <h1> Total wardrobe cost: <b>${wardrobeCost}</b></h1>
-                    <h1 style={{paddingLeft: "1em"}}> Cost of last outfit: <b>$0</b></h1>
+                    <h1 style={{paddingLeft: "1em"}}> Cost of last outfit: <b>${outfitCost}</b></h1>
                 </div>
             </header>
         </div>

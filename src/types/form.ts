@@ -3,5 +3,11 @@ export interface FormData {
   price: number;
   type: string;
   image: File | null; // optional image file
-  selected: boolean;
+  ?selected: boolean = false;
+}
+
+export interface OutfitData {
+  date: string;
+  composition: string;
+  cost: number;
 }

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
-//import { FormData } from '../types/form'; /* For Vercel */
+//import { FormData, OutfitData } from '../types/form'; /* For Vercel */
 import styles from './page.module.css';
 
 // For Vercel
@@ -12,6 +12,11 @@ interface FormData {
   type: string;
   image: File | null; // optional image file
   selected: boolean;
+}
+interface OutfitData {
+  date: string;
+  composition: string;
+  cost: number;
 }
 
 function Wardrobe() {
@@ -33,6 +38,24 @@ function Wardrobe() {
 	}
 
 	const logSelected = () => {
+		const currentDate: string = new Date().toLocaleDateString();
+
+		const outfit: FormData[] = submissions.filter(item => item.selected);
+		const name: string = outfit.map(item => item.name).join(', ');
+		console.log("Outfit: ", name);
+		const totalCost = outfit.reduce((total, item) => total + item.price, 0);
+		console.log("Cost: ", totalCost);
+
+		const newOutfit: OutfitData = {date: currentDate, composition: name, cost: totalCost};
+
+		const loggedOutfits: OutfitData[] = JSON.parse(localStorage.getItem('loggedOutfits') || '[]');
+
+		loggedOutfits.push(newOutfit);
+		localStorage.setItem('loggedOutfits', JSON.stringify(loggedOutfits));
+
+
+
+
 	}
 
 	useEffect(() => {

@@ -18,6 +18,9 @@ function Footer() {
 						<Link className={currentRoute === "/Add" 
 							? "NavButton-active" 
 							: "NavButton-nonactive"} href={"/Add"}>Add</Link>
+						<Link className={currentRoute === "/Outfits" 
+							? "NavButton-active" 
+							: "NavButton-nonactive"} href={"/Outfits"}>Outfits</Link>
 					</nav>
 				</footer>
 			</div>
