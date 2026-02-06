@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { FormData } from '../types/form';
+import { FormData } from '@types/form';
 
 import styles from './page.module.css'
 

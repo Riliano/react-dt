@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
-import { FormData } from '../types/form';
+import { FormData } from '@types/form';
 import styles from './page.module.css';
 
 function Wardrobe() {
