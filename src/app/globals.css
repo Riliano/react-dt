@@ -19,8 +19,29 @@
   }
 }
 
+#container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  flex: 1;
+  overflow: auto;
+}
+
+header {
+	position: absolute;
+	top: 0;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
 }
