@@ -2,16 +2,8 @@
 
 import { useState, useEffect } from 'react';
 
-//import {  OutfitData } from '../types/form'; /* For Vercel */
+import {  OutfitData } from '../../types/form';
 import styles from './page.module.css';
-
-// For Vercel
-interface OutfitData {
-  date: string;
-  composition: string;
-  cost: number;
-}
-
 
 function Wardrobe() {
   const [submissions, setSubmissions] = useState<OutfitData[]>([]);

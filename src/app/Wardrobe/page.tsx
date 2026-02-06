@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
-import { FormData, OutfitData } from '../types/form'; /* For Vercel */
+import { FormData, OutfitData } from '../../types/form';
 import styles from './page.module.css';
 
 function Wardrobe() {
