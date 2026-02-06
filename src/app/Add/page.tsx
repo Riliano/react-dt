@@ -1,15 +1,17 @@
 "use client";
 
 import { useState } from 'react';
-// import { FormData } from '@types/form'; For Vervel 
+//import { FormData } from '@types/form';// For Vervel 
 
 import styles from './page.module.css'
 
+// For vercel
 interface FormData {
   name: string;
   price: number;
   type: string;
   image: File | null; // Image can either be a file or null if no image is selected
+  selected: boolean;
 }
 
 function Add() {
@@ -18,10 +20,10 @@ function Add() {
 	const [type, setType] = useState<string>(''); // Store the selected type
 	const [image, setImage] = useState<File | null>(null); // For the image input
 
-	async function onSubmit(event: any /*Rect.FormEvent<HTMLFormEvent>*/) {
+	async function onSubmit(event: any /*Rect.FormEvent<HTMLFormEvent> */) {
 		event.preventDefault();
 
-		 const newSubmission: FormData = {name, price, type, image};
+		 const newSubmission: FormData = {name, price, type, image, selected: false};
 
 		// Get current submissions from localStorage, or initialize as an empty array
 		const existingSubmissions: FormData[] = JSON.parse(localStorage.getItem('wardrobe') || '[]');

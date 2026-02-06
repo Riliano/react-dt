@@ -60,6 +60,14 @@ header {
 	padding-left: 3em;
 }
 
+.Status {
+  display: flex;         /* Make it a flex container */
+  justify-content: flex-end; /* Right-align the content */
+  align-items: right;   /* Vertically center the content (optional) */
+  font-size: large;
+  padding-right: 3em;
+}
+
 .AppTitle {
 	font-size: x-large;
 }
@@ -90,3 +98,5 @@ footer {
 	padding-left: 4em;
 	padding-right: 4em;
 }
+
+

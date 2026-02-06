@@ -7,14 +7,17 @@
   padding: 1rem;
   font-family: Arial, sans-serif;
   text-align: center;
+  max-height: calc(100vh - 200px);
   height: 80%;
-  padding-bottom: 2em;
 }
 
 .submissionsTable {
+  flex: 1;
+  overflow-y: auto;
   width: 100%;
   border-collapse: collapse;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-height: 20%;
 }
 
 .submissionsTable th,
@@ -40,4 +43,27 @@
   border-radius: 4px;
   display: block;
   margin: 0 auto;
+}
+
+.actions {
+  position: fixed;       /* fixed relative to viewport */
+  bottom: 5rem;
+  right: 2rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 1000;
+}
+
+.actions button {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border: 1px solid #888;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.actions button:hover {
+  background-color: #e0e0e0;
 }

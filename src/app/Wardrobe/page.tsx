@@ -6,15 +6,34 @@ import { useState, useEffect } from 'react';
 import styles from './page.module.css';
 
 // For Vercel
-export interface FormData {
+interface FormData {
   name: string;
   price: number;
   type: string;
   image: File | null; // optional image file
+  selected: boolean;
 }
 
 function Wardrobe() {
 	const [submissions, setSubmissions] = useState<FormData[]>([]);
+
+	const toggleSelect = (index: number) => {
+		setSubmissions(prev =>
+			prev.map((item, i) =>
+				i === index ? { ...item, selected: !item.selected } : item
+			)
+		);
+	};
+
+	const removeSelected = () => {
+		const newSub: FormData[] = submissions.filter(item => item.selected === false)
+		console.log("Updated submissions:", newSub); // Debugging line
+		localStorage.setItem('wardrobe', JSON.stringify(newSub));
+		setSubmissions(newSub);
+	}
+
+	const logSelected = () => {
+	}
 
 	useEffect(() => {
 		// Read stored submissions from localStorage
@@ -32,6 +51,7 @@ function Wardrobe() {
 				<table className={styles.submissionsTable}>
 					<thead>
 					  <tr>
+					    <th>Selected</th>
 						<th>Item Name</th>
 						<th>Price</th>
 						<th>Type</th>
@@ -41,6 +61,12 @@ function Wardrobe() {
 					<tbody>
 					  {submissions.map((item, index) => (
 						<tr key={index}>
+							<td>
+							<input
+							  type="checkbox"
+							  checked={!!item.selected}
+							  onChange={() => toggleSelect(index)}
+							/></td>
 						  <td>{item.name}</td>
 						  <td>${item.price}</td>
 						  <td>{item.type}</td>
@@ -58,6 +84,10 @@ function Wardrobe() {
 					  ))}
 					</tbody>
 				  </table>
+			</div>
+			<div className={styles.actions}>
+			  <button onClick={removeSelected}>Remove from Wardrobe</button>
+			  <button onClick={logSelected}>Log Outfit</button>
 			</div>
 		</>
 }
