@@ -3,5 +3,5 @@ export interface FormData {
   price: number;
   type: string;
   image: File | null; // optional image file
-  ?selected: boolean = false;
+  selected: boolean = false;
 }
