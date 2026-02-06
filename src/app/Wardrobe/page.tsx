@@ -2,8 +2,16 @@
 
 import { useState, useEffect } from 'react';
 
-import { FormData } from '@types/form';
+//import { FormData } from '../types/form'; /* For Vercel */
 import styles from './page.module.css';
+
+// For Vercel
+export interface FormData {
+  name: string;
+  price: number;
+  type: string;
+  image: File | null; // optional image file
+}
 
 function Wardrobe() {
 	const [submissions, setSubmissions] = useState<FormData[]>([]);

@@ -1,18 +1,16 @@
 "use client";
 
 import { useState } from 'react';
-import { FormData } from '@types/form';
+// import { FormData } from '@types/form'; For Vervel 
 
-import styles from './page.module.css'
+impork styles from './page.module.css'
 
-/*
 interface FormData {
   name: string;
   price: number;
   type: string;
   image: File | null; // Image can either be a file or null if no image is selected
 }
-*/
 
 function Add() {
 	const [name, setName] = useState<string>('');
