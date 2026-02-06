@@ -18,7 +18,7 @@ function Add() {
 	const [type, setType] = useState<string>(''); // Store the selected type
 	const [image, setImage] = useState<File | null>(null); // For the image input
 
-	async function onSubmit(event: Rect.FormEvent<HTMLFormEvent>) {
+	async function onSubmit(event: any /*Rect.FormEvent<HTMLFormEvent>*/) {
 		event.preventDefault();
 
 		 const newSubmission: FormData = {name, price, type, image};
